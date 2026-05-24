@@ -56,15 +56,7 @@ const serviceOptions = [
       <div>
         <h2 class="font-serif text-2xl text-anthracite mb-6">Demande de rendez-vous</h2>
 
-        <form
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          class="space-y-5"
-          id="contact-form"
-        >
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value="Demande de rendez-vous — Atelier La Toison d'Or" />
-          <input type="hidden" name="from_name" value="Site La Toison d'Or" />
+        <form class="space-y-5" id="contact-form">
           <div>
             <label for="name" class="block font-sans text-sm font-medium text-anthracite mb-1">
               Nom complet <span class="text-terracotta">*</span>
@@ -238,33 +230,58 @@ const serviceOptions = [
 </Layout>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const form   = document.getElementById('contact-form') as HTMLFormElement;
+  const btn    = document.getElementById('submit-btn') as HTMLButtonElement;
   const status = document.getElementById('form-status') as HTMLElement;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const get = (id: string) =>
+      (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value.trim() ?? '';
+
+    const payload = {
+      name:    get('name'),
+      email:   get('email'),
+      phone:   get('phone'),
+      service: get('service'),
+      slot:    get('slot'),
+      message: get('message'),
+    };
+
+    if (!payload.name || !payload.email || !payload.service || !payload.slot) {
+      showStatus('Merci de remplir tous les champs obligatoires.', false);
+      return;
+    }
+
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
 
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: new FormData(form),
-    });
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
-    if (res.ok) {
-      form.reset();
-      status.textContent = 'Message envoyé. Nous vous répondons sous 24h ouvrées.';
-      status.className = 'font-sans text-sm text-terracotta text-center';
-      btn.textContent = 'Envoyer la demande';
+      if (res.ok) {
+        form.reset();
+        showStatus('Message envoyé. Nous vous répondons sous 24h ouvrées.', true);
+      } else {
+        const { error } = await res.json().catch(() => ({}));
+        showStatus(error ?? 'Une erreur est survenue. Appelez-nous directement.', false);
+      }
+    } catch {
+      showStatus('Connexion impossible. Appelez-nous directement.', false);
+    } finally {
       btn.disabled = false;
-    } else {
-      status.textContent = 'Une erreur est survenue. Appelez-nous directement.';
-      status.className = 'font-sans text-sm text-red-600 text-center';
       btn.textContent = 'Envoyer la demande';
-      btn.disabled = false;
     }
-
-    status.classList.remove('hidden');
   });
+
+  function showStatus(msg: string, ok: boolean) {
+    status.textContent = msg;
+    status.className = `font-sans text-sm text-center ${ok ? 'text-terracotta' : 'text-red-600'}`;
+    status.classList.remove('hidden');
+  }
 </script>
