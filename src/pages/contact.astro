@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+const mailerEndpoint = import.meta.env.NEXT_PUBLIC_MAILER_ENDPOINT ?? '';
+const mailerToken    = import.meta.env.NEXT_PUBLIC_MAILER_SITE_TOKEN ?? '';
+
 const timeSlots = [
   'Lundi 9h30 – 13h00',
   'Lundi 14h00 – 19h00',
@@ -67,7 +70,10 @@ const serviceOptions = [
           </p>
         </div>
 
-        <form class="space-y-5" id="contact-form">
+        <form class="space-y-5" id="contact-form"
+          data-endpoint={mailerEndpoint}
+          data-token={mailerToken}
+        >
           <div>
             <label for="name" class="block font-sans text-sm font-medium text-anthracite mb-1">
               Nom complet <span class="text-terracotta">*</span>
@@ -249,36 +255,58 @@ const serviceOptions = [
   const btn     = document.getElementById('submit-btn') as HTMLButtonElement;
   const status  = document.getElementById('form-status') as HTMLElement;
 
+  const endpoint = form.dataset.endpoint ?? '';
+  const token    = form.dataset.token ?? '';
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const get = (id: string) =>
       (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value.trim() ?? '';
 
-    const payload = {
-      name:    get('name'),
-      email:   get('email'),
-      phone:   get('phone'),
-      service: get('service'),
-      slot:    get('slot'),
-      message: get('message'),
-      pageUrl: window.location.href,
-      company: get('company'),
-    };
+    const name    = get('name');
+    const email   = get('email');
+    const phone   = get('phone');
+    const service = get('service');
+    const slot    = get('slot');
+    const company = get('company');
+    const userMsg = get('message');
 
-    if (!payload.name || !payload.email || !payload.service || !payload.slot) {
+    if (!name || !email || !service || !slot) {
       showStatus('Merci de remplir tous les champs obligatoires.', false);
       return;
     }
+
+    // Honeypot: silently abort if filled (bot detection)
+    if (company) return;
+
+    // Build a message the mailer schema accepts (min 10 chars).
+    // Service name alone is already > 10 chars; user message is appended if present.
+    const message = [
+      `Prestation : ${service}`,
+      `Créneau : ${slot}`,
+      ...(userMsg ? [`\n${userMsg}`] : []),
+    ].join('\n');
 
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Site-Token': token,
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          subject: `Rendez-vous — ${service} · ${slot} (${name})`,
+          message,
+          pageUrl: window.location.href,
+          company: '',
+        }),
       });
 
       if (res.ok) {
@@ -286,8 +314,7 @@ const serviceOptions = [
         success.classList.remove('hidden');
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
-        const { error } = await res.json().catch(() => ({}));
-        showStatus(error ?? 'Une erreur est survenue. Appelez-nous directement.', false);
+        showStatus('Une erreur est survenue. Appelez-nous directement.', false);
         btn.disabled = false;
         btn.textContent = 'Envoyer la demande';
       }
