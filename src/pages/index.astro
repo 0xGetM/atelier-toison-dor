@@ -1,7 +1,163 @@
 ---
-// Placeholder — will be replaced in Task 5
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+
+const testimonials = [
+  {
+    quote: "Ma veste de tailleur retrouvée après dix ans, ajustée comme si elle avait toujours été faite pour moi. Un travail remarquable.",
+    author: "Sophie M.",
+    detail: "Montparnasse"
+  },
+  {
+    quote: "Ourlet de pantalon rendu en 24h, propre et invisible. Je ne vais nulle part ailleurs.",
+    author: "Jean-Pierre L.",
+    detail: "Denfert"
+  },
+  {
+    quote: "Robe de mariée transformée en robe de soirée. La fondatrice a compris exactement ce que je voulais dès le premier rendez-vous.",
+    author: "Camille R.",
+    detail: "Alésia"
+  },
+];
 ---
-<html lang="fr">
-  <head><meta charset="utf-8" /><title>Atelier La Toison d'Or</title></head>
-  <body></body>
-</html>
+
+<Layout
+  title="Retouche Couture Paris 14 — Atelier La Toison d'Or"
+  description="Atelier de couture et retouches à Paris 14e. Retouches soignées, confection sur mesure, réparation textile. Quartiers Alésia, Denfert, Montparnasse."
+  canonical="/"
+>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-anthracite">
+    <div class="absolute inset-0 bg-anthracite/60 z-10"></div>
+    <div
+      class="absolute inset-0 bg-cover bg-center z-0"
+      style="background-image: url('/images/hero-atelier.jpg')"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <p class="font-sans text-xs uppercase tracking-widest text-terracotta mb-4">
+        Atelier couture · Paris 14<sup>e</sup>
+      </p>
+      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-creme leading-tight max-w-2xl mb-6">
+        Chaque pièce mérite un geste juste.
+      </h1>
+      <p class="font-sans text-lin/80 text-lg max-w-lg mb-10 leading-relaxed">
+        Retouches, confection sur mesure et réparation de vêtements qui comptent — avec le soin qu'ils méritent.
+      </p>
+      <a href="/contact" class="btn-primary text-base px-8 py-4">
+        Prendre rendez-vous
+      </a>
+    </div>
+  </section>
+
+  <!-- Bandeau réassurance -->
+  <section class="bg-lin py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {[
+          { value: '15+', label: "années d'expérience" },
+          { value: '3 000+', label: 'pièces travaillées' },
+          { value: '48h', label: 'délai express' },
+          { value: '14e', label: 'arrondissement' },
+        ].map(item => (
+          <div class="fade-up">
+            <p class="font-serif text-4xl text-terracotta mb-1">{item.value}</p>
+            <p class="font-sans text-xs uppercase tracking-wide text-anthracite/70">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Aperçu prestations -->
+  <section class="py-20 bg-creme">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <p class="section-subtitle">Ce que nous faisons</p>
+        <h2 class="section-title max-w-xl">
+          Un atelier pour les vêtements auxquels vous tenez.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: '✂',
+            title: 'Retouches & ajustements',
+            desc: 'Cintrage, raccourcissement, reprise de coutures — pour que le vêtement soit vraiment à votre taille.',
+          },
+          {
+            icon: '🧵',
+            title: 'Confection sur mesure',
+            desc: "Création de pièces uniques à partir de vos tissus ou des nôtres, selon vos envies.",
+          },
+          {
+            icon: '🪡',
+            title: 'Réparation textile',
+            desc: 'Raccommodage, remplacement de fermetures, stoppage — on répare ce que vous aimez.',
+          },
+          {
+            icon: '🔄',
+            title: 'Transformation',
+            desc: 'Robe en jupe, veste en gilet, manteau relooké — donnez une seconde vie à vos pièces.',
+          },
+          {
+            icon: '📏',
+            title: 'Ourlets express',
+            desc: 'Pantalons, robes, manteaux. Résultat propre en 24 à 48h selon les délais.',
+          },
+          {
+            icon: '📅',
+            title: 'Sur rendez-vous',
+            desc: 'Prenez rendez-vous en ligne pour un essayage et un devis sans engagement.',
+          },
+        ].map(item => (
+          <div class="bg-lin/30 border border-lin p-6 rounded-sm fade-up group hover:border-terracotta/40 transition-colors">
+            <span class="text-2xl mb-4 block" aria-hidden="true">{item.icon}</span>
+            <h3 class="font-serif text-xl text-anthracite mb-2">{item.title}</h3>
+            <p class="font-sans text-sm text-anthracite/70 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/services" class="btn-outline">Voir tous les tarifs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section class="py-20 bg-lin/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <p class="section-subtitle">Ce qu'ils en disent</p>
+        <h2 class="section-title">Des clients du quartier satisfaits.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map(t => (
+          <TestimonialCard quote={t.quote} author={t.author} detail={t.detail} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="bg-terracotta py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-serif text-3xl md:text-4xl text-creme mb-4">
+        Prêt·e à confier votre pièce ?
+      </h2>
+      <p class="font-sans text-lin/80 mb-8 leading-relaxed">
+        Prenez rendez-vous en ligne — consultation et devis offerts.
+      </p>
+      <a href="/contact" class="inline-block bg-creme text-terracotta font-medium px-8 py-4 rounded-sm hover:bg-lin transition-colors">
+        Réserver un créneau
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
