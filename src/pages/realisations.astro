@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
+
+const realisations = [
+  {
+    category: 'Retouche',
+    before: '/images/before-1.jpg',
+    after: '/images/after-1.jpg',
+    beforeAlt: 'Veste avant cintrage — trop large aux épaules',
+    afterAlt: 'Veste après cintrage — ajustée et structurée',
+    caption: "Cintrage d'un blazer vintage — reprise dos et côtés, épaules repositionnées.",
+  },
+  {
+    category: 'Confection',
+    before: '/images/before-2.jpg',
+    after: '/images/after-2.jpg',
+    beforeAlt: 'Tissu lin avant confection',
+    afterAlt: 'Blouse lin confectionnée sur mesure',
+    caption: 'Blouse lin sur mesure — patron tracé sur mesure, cols et poignets brodés à la main.',
+  },
+  {
+    category: 'Transformation',
+    before: '/images/before-3.jpg',
+    after: '/images/after-3.jpg',
+    beforeAlt: 'Robe longue avant transformation',
+    afterAlt: 'Jupe midi après transformation',
+    caption: 'Robe longue transformée en jupe midi — ceinture restructurée, surplus devenu doublure.',
+  },
+  {
+    category: 'Réparation',
+    before: '/images/before-4.jpg',
+    after: '/images/after-4.jpg',
+    beforeAlt: 'Manteau avec fermeture cassée',
+    afterAlt: 'Manteau avec fermeture remplacée',
+    caption: "Remplacement d'une fermeture Éclair sur manteau en laine bouillie — invisible.",
+  },
+  {
+    category: 'Retouche',
+    before: '/images/before-5.jpg',
+    after: '/images/after-5.jpg',
+    beforeAlt: 'Jean avant ourlet',
+    afterAlt: "Jean après ourlet original préservé",
+    caption: "Ourlet jean avec conservation de l'ourlet d'origine — technique selvedge.",
+  },
+  {
+    category: 'Confection',
+    before: '/images/before-6.jpg',
+    after: '/images/after-6.jpg',
+    beforeAlt: 'Patron robe de soirée',
+    afterAlt: 'Robe de soirée confectionnée',
+    caption: "Robe de soirée en soie sauvage — confection intégrale sur 3 séances d'essayage.",
+  },
+];
+
+const categories = ['Tous', 'Retouche', 'Confection', 'Transformation', 'Réparation'];
+---
+
+<Layout
+  title="Réalisations — Avant/Après · Atelier La Toison d'Or Paris 14"
+  description="Galerie avant/après de l'atelier : retouches, confection sur mesure, transformations et réparations de vêtements à Paris 14e (Alésia, Denfert, Montparnasse)."
+  canonical="/realisations"
+>
+  <Header slot="header" />
+
+  <!-- Page header -->
+  <section class="bg-lin py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="section-subtitle">Galerie</p>
+      <h1 class="section-title max-w-xl mb-4">
+        Ce que nos mains ont fait.
+      </h1>
+      <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
+        Glissez le curseur pour voir la transformation. Chaque pièce raconte une histoire — et un geste attentionné.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter tabs -->
+  <section class="bg-creme border-b border-lin sticky top-16 md:top-20 z-40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-1 overflow-x-auto py-3" id="filter-tabs">
+        {categories.map((cat, i) => (
+          <button
+            data-filter={cat}
+            class:list={[
+              'filter-btn flex-shrink-0 font-sans text-sm px-4 py-2 rounded-sm transition-colors',
+              i === 0
+                ? 'bg-terracotta text-creme'
+                : 'text-anthracite/60 hover:text-anthracite'
+            ]}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery grid -->
+  <section class="py-16 bg-creme">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+        {realisations.map(r => (
+          <div data-category={r.category} class="gallery-item">
+            <BeforeAfterSlider
+              before={r.before}
+              after={r.after}
+              beforeAlt={r.beforeAlt}
+              afterAlt={r.afterAlt}
+              caption={r.caption}
+              category={r.category}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items = document.querySelectorAll<HTMLElement>('.gallery-item');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.dataset.filter!;
+      tabs.forEach(t => t.classList.remove('bg-terracotta', 'text-creme'));
+      tab.classList.add('bg-terracotta', 'text-creme');
+      items.forEach(item => {
+        const show = filter === 'Tous' || item.dataset.category === filter;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>

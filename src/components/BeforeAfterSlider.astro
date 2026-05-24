@@ -1,0 +1,81 @@
+---
+export interface Props {
+  before: string;
+  after: string;
+  beforeAlt: string;
+  afterAlt: string;
+  caption: string;
+  category: string;
+}
+const { before, after, beforeAlt, afterAlt, caption, category } = Astro.props;
+const id = Math.random().toString(36).slice(2, 8);
+---
+
+<figure class="before-after-slider group relative overflow-hidden rounded-sm bg-lin fade-up" data-id={id}>
+  <div class="relative w-full aspect-[4/3] select-none overflow-hidden cursor-col-resize" id={`container-${id}`}>
+    <!-- After image (background) -->
+    <img
+      src={after}
+      alt={afterAlt}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="lazy"
+      draggable="false"
+    />
+    <!-- Before image (clip) -->
+    <div class="absolute inset-0 overflow-hidden" id={`clip-${id}`} style="width: 50%">
+      <img
+        src={before}
+        alt={beforeAlt}
+        class="absolute inset-0 w-full h-full object-cover"
+        style="min-width: 100%"
+        draggable="false"
+      />
+    </div>
+    <!-- Divider -->
+    <div
+      class="absolute top-0 bottom-0 w-0.5 bg-creme shadow-lg"
+      id={`divider-${id}`}
+      style="left: 50%"
+    >
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-creme shadow-md flex items-center justify-center">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M6 9H2m0 0 2-2M2 9l2 2M12 9h4m0 0-2-2m2 2-2 2" stroke="#C27044" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <!-- Labels -->
+    <span class="absolute top-3 left-3 font-sans text-xs uppercase tracking-wider bg-anthracite/70 text-lin px-2 py-1 rounded-sm">Avant</span>
+    <span class="absolute top-3 right-3 font-sans text-xs uppercase tracking-wider bg-terracotta/90 text-creme px-2 py-1 rounded-sm">Après</span>
+  </div>
+  <figcaption class="p-4">
+    <span class="font-sans text-xs uppercase tracking-widest text-terracotta">{category}</span>
+    <p class="font-sans text-sm text-anthracite mt-1">{caption}</p>
+  </figcaption>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.before-after-slider').forEach(slider => {
+    const id = slider.dataset.id!;
+    const container = document.getElementById(`container-${id}`)!;
+    const clip = document.getElementById(`clip-${id}`)!;
+    const divider = document.getElementById(`divider-${id}`)!;
+
+    let dragging = false;
+
+    function setPosition(x: number) {
+      const rect = container.getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      clip.style.width = pct + '%';
+      divider.style.left = pct + '%';
+    }
+
+    container.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
+    window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+    window.addEventListener('mouseup', () => { dragging = false; });
+
+    container.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => { dragging = false; });
+  });
+</script>
