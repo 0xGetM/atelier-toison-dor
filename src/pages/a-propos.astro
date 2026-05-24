@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="À propos — Couturière Paris 14e · Atelier La Toison d'Or"
+  description="Histoire de l'atelier, parcours de la fondatrice et philosophie du travail bien fait. Atelier de couture artisanal à Paris 14e, quartier Alésia."
+  canonical="/a-propos"
+>
+  <Header slot="header" />
+
+  <!-- Page header -->
+  <section class="bg-lin py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="section-subtitle">L'atelier</p>
+        <h1 class="section-title mb-6">
+          Un métier appris à la main,<br />pratiqué avec le cœur.
+        </h1>
+        <p class="font-sans text-anthracite/70 leading-relaxed">
+          La Toison d'Or, c'est un atelier de quartier comme il en existait autrefois dans chaque rue parisienne. Un espace où l'on prend le temps de regarder un vêtement, de comprendre ce qui ne va pas, et de trouver le geste qui remet les choses en place.
+        </p>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/5] bg-lin rounded-sm overflow-hidden">
+          <img
+            src="/images/fondatrice.jpg"
+            alt="La fondatrice de l'Atelier La Toison d'Or dans son atelier"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+        <div class="absolute -bottom-4 -left-4 bg-terracotta text-creme font-serif text-lg p-5 rounded-sm hidden md:block">
+          15 ans de métier
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Histoire -->
+  <section class="py-16 bg-creme">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="section-subtitle">Histoire</p>
+      <h2 class="section-title mb-8">Comment tout a commencé.</h2>
+
+      <div class="space-y-5 font-sans text-anthracite/80 leading-relaxed">
+        <p>
+          Tout commence par une machine à coudre héritée, une grand-mère qui avait les mains habiles, et une enfance passée à regarder comment les tissus prennent forme. Après une formation aux métiers de la mode à Paris, puis plusieurs années en atelier de haute couture, Marie — fondatrice de La Toison d'Or — décide d'ouvrir son propre espace en 2009, rue d'Alésia.
+        </p>
+        <p>
+          L'idée était simple : proposer aux habitants du 14<sup>e</sup> un service artisanal sérieux, à taille humaine, sans les délais et les tarifs des maisons de couture. Un endroit où l'on peut déposer un manteau qui tient à soi, et le récupérer mieux que neuf.
+        </p>
+        <p>
+          Depuis, l'atelier a grandi — une seconde ouvrière nous a rejoints en 2019 — mais la philosophie reste la même : chaque pièce mérite qu'on la regarde, qu'on la touche, qu'on comprenne comment elle a été construite avant d'y porter les ciseaux.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophie -->
+  <section class="py-16 bg-lin/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="aspect-square bg-lin rounded-sm overflow-hidden">
+            <img src="/images/atelier-1.jpg" alt="Vue de l'atelier, machines et tissus" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="aspect-square bg-lin rounded-sm overflow-hidden mt-8">
+            <img src="/images/atelier-2.jpg" alt="Détail d'une retouche en cours" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+        <div class="fade-up">
+          <p class="section-subtitle">Philosophie</p>
+          <h2 class="section-title mb-6">Le travail bien fait.<br />Pas plus, pas moins.</h2>
+          <div class="space-y-4 font-sans text-sm text-anthracite/70 leading-relaxed">
+            <p>
+              On n'accepte pas une pièce si on ne peut pas la traiter correctement. On ne promet pas des délais qu'on ne peut pas tenir. Et on ne facture pas un geste simple au prix d'un travail complexe.
+            </p>
+            <p>
+              Ce que vous voyez chez nous, c'est le prix juste pour un travail honnête — réalisé avec des finitions propres, des fils assortis, des machines entretenues, et deux paires d'yeux qui vérifient avant de vous rendre la pièce.
+            </p>
+            <p>
+              On répare aussi ce qui n'est pas notre faute. Parce que les vêtements que vous aimez le méritent.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valeurs -->
+  <section class="py-16 bg-creme">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="section-subtitle text-center">Nos engagements</p>
+      <h2 class="section-title text-center mb-12">Ce en quoi nous croyons.</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {[
+          { title: 'Transparence', text: 'Le devis est établi avant tout travail. Pas de surprise à la récupération.' },
+          { title: 'Artisanat', text: "Pas de sous-traitance. Chaque pièce est travaillée ici, dans cet atelier." },
+          { title: 'Durabilité', text: "Réparer plutôt que jeter — c'est un choix de bon sens, et c'est notre métier." },
+        ].map(v => (
+          <div class="text-center fade-up">
+            <h3 class="font-serif text-2xl text-anthracite mb-3">{v.title}</h3>
+            <p class="font-sans text-sm text-anthracite/70 leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
