@@ -57,11 +57,14 @@ const serviceOptions = [
         <h2 class="font-serif text-2xl text-anthracite mb-6">Demande de rendez-vous</h2>
 
         <form
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="https://api.web3forms.com/submit"
           method="POST"
           class="space-y-5"
           id="contact-form"
         >
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="Demande de rendez-vous — Atelier La Toison d'Or" />
+          <input type="hidden" name="from_name" value="Site La Toison d'Or" />
           <div>
             <label for="name" class="block font-sans text-sm font-medium text-anthracite mb-1">
               Nom complet <span class="text-terracotta">*</span>
@@ -153,13 +156,11 @@ const serviceOptions = [
             ></textarea>
           </div>
 
-          <button type="submit" class="btn-primary w-full text-center py-4">
+          <button type="submit" id="submit-btn" class="btn-primary w-full text-center py-4">
             Envoyer la demande
           </button>
 
-          <p class="font-sans text-xs text-anthracite/50 text-center">
-            Nous vous répondons sous 24h ouvrées.
-          </p>
+          <p id="form-status" class="font-sans text-xs text-anthracite/50 text-center hidden"></p>
         </form>
       </div>
 
@@ -207,7 +208,7 @@ const serviceOptions = [
             Retrouvez-nous sur Google Maps et laissez-nous un avis.
           </p>
           <a
-            href="https://maps.google.com/?cid=VOTRE_CID"
+            href="https://maps.google.com/?cid=14010297529868604585"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-outline text-sm py-2"
@@ -235,3 +236,35 @@ const serviceOptions = [
 
   <Footer slot="footer" />
 </Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const status = document.getElementById('form-status') as HTMLElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form),
+    });
+
+    if (res.ok) {
+      form.reset();
+      status.textContent = 'Message envoyé. Nous vous répondons sous 24h ouvrées.';
+      status.className = 'font-sans text-sm text-terracotta text-center';
+      btn.textContent = 'Envoyer la demande';
+      btn.disabled = false;
+    } else {
+      status.textContent = 'Une erreur est survenue. Appelez-nous directement.';
+      status.className = 'font-sans text-sm text-red-600 text-center';
+      btn.textContent = 'Envoyer la demande';
+      btn.disabled = false;
+    }
+
+    status.classList.remove('hidden');
+  });
+</script>
