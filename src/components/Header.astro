@@ -1,0 +1,90 @@
+---
+const navLinks = [
+  { href: '/',             label: 'Accueil' },
+  { href: '/services',     label: 'Services' },
+  { href: '/realisations', label: 'Réalisations' },
+  { href: '/a-propos',     label: 'À propos' },
+  { href: '/faq',          label: 'FAQ' },
+  { href: '/contact',      label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-creme border-b border-lin sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <!-- Logo -->
+      <a href="/" class="flex flex-col leading-none group">
+        <span class="font-serif text-xl md:text-2xl text-anthracite tracking-wide group-hover:text-terracotta transition-colors">
+          La Toison d'Or
+        </span>
+        <span class="font-sans text-[10px] uppercase tracking-widest text-terracotta">
+          Atelier couture · Paris 14e
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'font-sans text-sm transition-colors duration-150',
+              currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                ? 'text-terracotta font-medium'
+                : 'text-anthracite hover:text-terracotta'
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="/contact" class="btn-primary text-sm py-2 px-5">
+          Prendre rendez-vous
+        </a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-btn"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        class="md:hidden flex flex-col gap-1.5 p-2"
+      >
+        <span class="block w-6 h-0.5 bg-anthracite transition-all"></span>
+        <span class="block w-6 h-0.5 bg-anthracite transition-all"></span>
+        <span class="block w-6 h-0.5 bg-anthracite transition-all"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-creme border-t border-lin px-4 pb-6 pt-4">
+    <nav class="flex flex-col gap-4">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'font-sans text-base transition-colors',
+            currentPath === link.href ? 'text-terracotta font-medium' : 'text-anthracite'
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact" class="btn-primary text-center mt-2">
+        Prendre rendez-vous
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!menu?.classList.contains('hidden')));
+  });
+</script>
