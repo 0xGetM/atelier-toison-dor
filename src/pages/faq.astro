@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FAQItem from '../components/FAQItem.astro';
+
+const faq = [
+  {
+    question: 'Quels sont vos délais habituels ?',
+    answer: "Pour les retouches simples (ourlets, cintrage, fermetures), comptez 3 à 5 jours ouvrés. Pour les travaux plus complexes — stoppage, confection, transformation — nous établissons un délai précis lors de votre dépôt. Des créneaux express en 24–48h sont disponibles pour les ourlets et petites réparations, selon notre charge de travail.",
+    open: true,
+  },
+  {
+    question: "Puis-je déposer un vêtement sans rendez-vous ?",
+    answer: "Oui, vous pouvez déposer une pièce directement à l'atelier pendant nos heures d'ouverture, sans rendez-vous préalable. Pour les essayages ou la confection sur mesure, un rendez-vous est nécessaire afin de vous consacrer le temps qu'il faut.",
+  },
+  {
+    question: 'Quels types de tissus acceptez-vous ?',
+    answer: "Nous travaillons la quasi-totalité des matières : coton, lin, laine, soie, velours, denim, cuir souple, synthétiques, doubles tissus. Certains matériaux très fragiles (dentelle ancienne, organza de soie) nécessitent un devis spécifique. En cas de doute, apportez-nous la pièce — on regarde ensemble.",
+  },
+  {
+    question: 'Comment sont établis vos tarifs ?',
+    answer: "Les tarifs affichés sur la page Services sont des fourchettes indicatives. Le devis définitif est établi lors de votre dépôt, après examen de la pièce. Il dépend du tissu, de la complexité de l'intervention et du délai demandé. Aucun travail ne commence sans votre accord explicite sur le devis.",
+  },
+  {
+    question: 'Acceptez-vous les retouches urgentes ?',
+    answer: "Oui, selon notre planning. Pour une urgence (mariage, événement), contactez-nous par téléphone avant de vous déplacer — nous ferons notre possible pour vous dépanner. Un supplément urgence peut s'appliquer pour les délais inférieurs à 24h.",
+  },
+  {
+    question: 'Proposez-vous la confection de A à Z ?',
+    answer: "Oui. Vous pouvez venir avec votre propre tissu, ou choisir parmi nos disponibilités en atelier. Nous établissons le patron sur vos mesures, réalisons une toile d'essai si nécessaire, et procédons à plusieurs essayages selon la complexité de la pièce. Comptez 2 à 4 séances pour une pièce complète.",
+  },
+  {
+    question: 'Peut-on modifier un vêtement pour le rendre plus grand ?',
+    answer: "Cela dépend de la pièce et des marges de couture disponibles. Certains vêtements ont suffisamment de tissu en réserve pour être agrandis d'une taille. Pour d'autres, des empiècements ou insertions sont possibles. Apportez la pièce — on vous dit honnêtement ce qui est faisable.",
+  },
+  {
+    question: 'Quelle est la différence entre stoppage et raccommodage ?',
+    answer: "Le raccommodage est une réparation visible ou discrète, adaptée aux tissus robustes (denim, laine épaisse). Le stoppage est une technique de restauration invisible, qui reconstitue le tissage fil par fil sur des matières fines (laine peignée, cachemire, flanelle). Le stoppage est plus long et donc plus onéreux, mais le résultat est indiscernable.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+};
+---
+
+<Layout
+  title="FAQ — Questions fréquentes · Atelier La Toison d'Or Paris 14"
+  description="Délais, types de tissus, tarifs, dépôt sans rendez-vous, retouches urgentes... Réponses aux questions fréquentes de l'atelier de couture La Toison d'Or, Paris 14e."
+  canonical="/faq"
+  schema={faqSchema}
+>
+  <Header slot="header" />
+
+  <!-- Page header -->
+  <section class="bg-lin py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="section-subtitle">FAQ</p>
+      <h1 class="section-title max-w-xl mb-4">
+        Questions fréquentes.
+      </h1>
+      <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
+        Vous avez une question avant de passer à l'atelier ? Les réponses les plus courantes sont là. Sinon, appelez-nous — on est de bons vivants.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-creme">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      {faq.map((item, i) => (
+        <FAQItem question={item.question} answer={item.answer} open={i === 0} />
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-lin py-12">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <p class="font-serif text-xl text-anthracite mb-4">
+        Une question qui n'est pas dans la liste ?
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:+33100000000" class="btn-outline">Nous appeler</a>
+        <a href="/contact" class="btn-primary">Écrire un message</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
