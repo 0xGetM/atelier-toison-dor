@@ -149,6 +149,9 @@ const serviceOptions = [
             ></textarea>
           </div>
 
+          <!-- Honeypot: hidden from real users, bots fill it in -->
+          <input type="text" name="company" id="company" autocomplete="off" tabindex="-1" aria-hidden="true" style="display:none" />
+
           <button type="submit" id="submit-btn" class="btn-primary w-full text-center py-4">
             Envoyer la demande
           </button>
@@ -248,6 +251,8 @@ const serviceOptions = [
       service: get('service'),
       slot:    get('slot'),
       message: get('message'),
+      pageUrl: window.location.href,
+      company: get('company'),
     };
 
     if (!payload.name || !payload.email || !payload.service || !payload.slot) {
