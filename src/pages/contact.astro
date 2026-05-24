@@ -19,18 +19,19 @@ const timeSlots = [
 ];
 
 const serviceOptions = [
-  'Retouche / ajustement',
-  'Ourlet express',
-  'Confection sur mesure',
-  'Réparation textile',
-  'Transformation de vêtement',
+  'Restauration de cadre ou boiserie',
+  'Restauration de mobilier doré',
+  'Restauration d\'objet d\'art',
+  'Œuvre religieuse / monument historique',
+  'Conservation préventive / diagnostic',
+  'Formation à la dorure',
   'Autre',
 ];
 ---
 
 <Layout
   title="Contact & Rendez-vous — Atelier La Toison d'Or Paris 14"
-  description="Prenez rendez-vous à l'atelier couture La Toison d'Or, Paris 14e. Adresse, horaires, formulaire de contact et carte. Quartiers Alésia, Denfert, Montparnasse."
+  description="Prenez rendez-vous à l'atelier de restauration de dorures La Toison d'Or, Paris 14e. Adresse, horaires, formulaire de contact et carte. Quartier Denfert-Rochereau."
   canonical="/contact"
 >
   <Header slot="header" />
@@ -43,7 +44,7 @@ const serviceOptions = [
         Prenez rendez-vous à l'atelier.
       </h1>
       <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
-        Venez avec votre pièce — la consultation et le devis sont offerts. On regarde ensemble, on vous dit ce qu'on peut faire, et on s'accorde sur le reste.
+        Venez avec votre pièce — le diagnostic et le devis sont offerts. On examine ensemble l'état de conservation, on vous explique ce qu'il est possible de faire, et on s'accorde avant tout travail.
       </p>
     </div>
   </section>
@@ -144,7 +145,7 @@ const serviceOptions = [
               name="message"
               rows="4"
               class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors resize-none"
-              placeholder="Décrivez brièvement votre vêtement et la retouche souhaitée…"
+              placeholder="Décrivez brièvement votre œuvre et l'intervention souhaitée…"
             ></textarea>
           </div>
 
@@ -164,16 +165,16 @@ const serviceOptions = [
           <address class="not-italic font-sans text-sm text-anthracite/80 space-y-3">
             <p class="flex gap-3">
               <span aria-hidden="true">📍</span>
-              <span>XX rue d'Alésia<br />75014 Paris</span>
+              <span>20, rue Ernest Cresson<br />75014 Paris</span>
             </p>
             <p class="flex gap-3">
               <span aria-hidden="true">📞</span>
-              <a href="tel:+33100000000" class="hover:text-terracotta transition-colors">01 XX XX XX XX</a>
+              <a href="tel:+33633791086" class="hover:text-terracotta transition-colors">06 33 79 10 86</a>
             </p>
             <p class="flex gap-3">
               <span aria-hidden="true">✉️</span>
-              <a href="mailto:contact@toison-dor-paris.fr" class="hover:text-terracotta transition-colors">
-                contact@toison-dor-paris.fr
+              <a href="mailto:sophie.derouin@wanadoo.fr" class="hover:text-terracotta transition-colors">
+                sophie.derouin@wanadoo.fr
               </a>
             </p>
           </address>
@@ -183,8 +184,8 @@ const serviceOptions = [
           <h3 class="font-serif text-xl text-anthracite mb-4">Horaires</h3>
           <dl class="font-sans text-sm space-y-2">
             {[
-              ['Lundi – Vendredi', '9h30 – 19h00'],
-              ['Samedi', '10h00 – 18h00'],
+              ['Lundi – Vendredi', '9h00 – 18h00'],
+              ['Samedi', 'Sur rendez-vous'],
               ['Dimanche', 'Fermé'],
             ].map(([day, hours]) => (
               <div class="flex justify-between gap-4">
@@ -217,7 +218,7 @@ const serviceOptions = [
   <section class="h-80 md:h-96 bg-lin">
     <iframe
       title="Localisation Atelier La Toison d'Or — Paris 14e"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=2.3100%2C48.8200%2C2.3400%2C48.8360&layer=mapnik&marker=48.8282%2C2.3264"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=2.3100%2C48.8230%2C2.3400%2C48.8430&layer=mapnik&marker=48.8328%2C2.3251"
       width="100%"
       height="100%"
       style="border:0;"

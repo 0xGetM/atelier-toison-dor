@@ -6,37 +6,37 @@ import FAQItem from '../components/FAQItem.astro';
 
 const faq = [
   {
-    question: 'Quels sont vos délais habituels ?',
-    answer: "Pour les retouches simples (ourlets, cintrage, fermetures), comptez 3 à 5 jours ouvrés. Pour les travaux plus complexes — stoppage, confection, transformation — nous établissons un délai précis lors de votre dépôt. Des créneaux express en 24–48h sont disponibles pour les ourlets et petites réparations, selon notre charge de travail.",
+    question: 'Sur quels types d\'objets intervenez-vous ?',
+    answer: "Nous restaurons les dorures anciennes sur cadres, boiseries, mobilier (fauteuils, consoles, commodes, lits de parade), objets d'art (bronzes, lustres, candélabres), et éléments architecturaux. Nous intervenons aussi sur des œuvres religieuses et des éléments de monuments historiques, en lien avec les services de la DRAC si nécessaire.",
     open: true,
   },
   {
-    question: "Puis-je déposer un vêtement sans rendez-vous ?",
-    answer: "Oui, vous pouvez déposer une pièce directement à l'atelier pendant nos heures d'ouverture, sans rendez-vous préalable. Pour les essayages ou la confection sur mesure, un rendez-vous est nécessaire afin de vous consacrer le temps qu'il faut.",
+    question: "Quelles techniques de dorure utilisez-vous ?",
+    answer: "Nous utilisons exclusivement les techniques traditionnelles : dorure à la feuille sur bol d'Arménie (pour les surfaces brunissables), dorure à la mixtion (pour les surfaces mates ou extérieures), et dorure au tampon. Les matériaux employés — feuille d'or véritable, bol naturel, colles de peau — sont ceux que les doreurs d'époque auraient utilisés.",
   },
   {
-    question: 'Quels types de tissus acceptez-vous ?',
-    answer: "Nous travaillons la quasi-totalité des matières : coton, lin, laine, soie, velours, denim, cuir souple, synthétiques, doubles tissus. Certains matériaux très fragiles (dentelle ancienne, organza de soie) nécessitent un devis spécifique. En cas de doute, apportez-nous la pièce — on regarde ensemble.",
+    question: 'Comment se déroule une restauration ?',
+    answer: "Tout commence par un diagnostic en atelier ou sur site : examen de l'état de conservation, identification des couches et des matériaux d'origine. Un rapport d'état et un devis écrit vous sont remis avant tout travail. La restauration est ensuite réalisée par étapes — consolidation, complétion des manques, dorure, patinage — et vous êtes informé à chaque phase.",
   },
   {
     question: 'Comment sont établis vos tarifs ?',
-    answer: "Les tarifs affichés sur la page Services sont des fourchettes indicatives. Le devis définitif est établi lors de votre dépôt, après examen de la pièce. Il dépend du tissu, de la complexité de l'intervention et du délai demandé. Aucun travail ne commence sans votre accord explicite sur le devis.",
+    answer: "Tous nos travaux sont réalisés sur devis, établi après examen de la pièce. Le prix dépend de l'état de conservation, des dimensions, de la complexité des ornements et de la technique de dorure appropriée. Aucun travail ne commence sans votre accord explicite et signé sur le devis.",
   },
   {
-    question: 'Acceptez-vous les retouches urgentes ?',
-    answer: "Oui, selon notre planning. Pour une urgence (mariage, événement), contactez-nous par téléphone avant de vous déplacer — nous ferons notre possible pour vous dépanner. Un supplément urgence peut s'appliquer pour les délais inférieurs à 24h.",
+    question: 'Acceptez-vous les œuvres de monuments historiques ?',
+    answer: "Oui. L'atelier intervient sur des œuvres et éléments classés ou inscrits aux monuments historiques. Ces travaux sont réalisés dans le respect des prescriptions de la DRAC et peuvent faire l'objet d'un rapport de restauration complet. Nous collaborons avec des conservateurs et des maîtres d'œuvre du patrimoine.",
   },
   {
-    question: 'Proposez-vous la confection de A à Z ?',
-    answer: "Oui. Vous pouvez venir avec votre propre tissu, ou choisir parmi nos disponibilités en atelier. Nous établissons le patron sur vos mesures, réalisons une toile d'essai si nécessaire, et procédons à plusieurs essayages selon la complexité de la pièce. Comptez 2 à 4 séances pour une pièce complète.",
+    question: 'Proposez-vous des formations à la dorure ?',
+    answer: "Oui. Sophie Derouin dispense des cours et stages de dorure à la feuille pour les particuliers et les professionnels (artisans, restaurateurs, décorateurs). Les sessions sont organisées en petit groupe ou en individuel. Contactez-nous pour connaître les prochaines dates et les programmes disponibles.",
   },
   {
-    question: 'Peut-on modifier un vêtement pour le rendre plus grand ?',
-    answer: "Cela dépend de la pièce et des marges de couture disponibles. Certains vêtements ont suffisamment de tissu en réserve pour être agrandis d'une taille. Pour d'autres, des empiècements ou insertions sont possibles. Apportez la pièce — on vous dit honnêtement ce qui est faisable.",
+    question: 'Faut-il apporter l\'objet à l\'atelier ?',
+    answer: "Pour les petits et moyens objets, nous vous demandons de les apporter à l'atelier, 20 rue Ernest Cresson, Paris 14e. Pour les pièces imposantes (grandes boiseries, mobilier fixe, éléments architecturaux), nous pouvons nous déplacer sur site en Île-de-France. Contactez-nous pour convenir des modalités.",
   },
   {
-    question: 'Quelle est la différence entre stoppage et raccommodage ?',
-    answer: "Le raccommodage est une réparation visible ou discrète, adaptée aux tissus robustes (denim, laine épaisse). Le stoppage est une technique de restauration invisible, qui reconstitue le tissage fil par fil sur des matières fines (laine peignée, cachemire, flanelle). Le stoppage est plus long et donc plus onéreux, mais le résultat est indiscernable.",
+    question: 'Quels sont vos délais habituels ?',
+    answer: "Les délais varient selon la nature et l'état de la pièce. Un cadre de taille standard peut être rendu sous 3 à 6 semaines. Un fauteuil ou un ensemble de boiseries demandera davantage de temps. Un délai réaliste est toujours établi lors du devis — nous ne promettons pas ce que nous ne pouvons pas tenir.",
   },
 ];
 
@@ -56,7 +56,7 @@ const faqSchema = {
 
 <Layout
   title="FAQ — Questions fréquentes · Atelier La Toison d'Or Paris 14"
-  description="Délais, types de tissus, tarifs, dépôt sans rendez-vous, retouches urgentes... Réponses aux questions fréquentes de l'atelier de couture La Toison d'Or, Paris 14e."
+  description="Techniques de dorure, types d'objets restaurés, délais, monuments historiques, formations... Réponses aux questions fréquentes de l'atelier La Toison d'Or, Paris 14e."
   canonical="/faq"
   schema={faqSchema}
 >
@@ -70,7 +70,7 @@ const faqSchema = {
         Questions fréquentes.
       </h1>
       <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
-        Vous avez une question avant de passer à l'atelier ? Les réponses les plus courantes sont là. Sinon, appelez-nous — on est de bons vivants.
+        Vous avez une question avant de nous contacter ? Les réponses les plus courantes sont là. Sinon, appelez-nous — nous sommes à votre écoute.
       </p>
     </div>
   </section>
@@ -91,7 +91,7 @@ const faqSchema = {
         Une question qui n'est pas dans la liste ?
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:+33100000000" class="btn-outline">Nous appeler</a>
+        <a href="tel:+33633791086" class="btn-outline">Nous appeler</a>
         <a href="/contact" class="btn-primary">Écrire un message</a>
       </div>
     </div>

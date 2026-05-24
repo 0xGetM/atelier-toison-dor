@@ -7,61 +7,61 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 const UNS = 'https://images.unsplash.com';
 const realisations = [
   {
-    category: 'Retouche',
+    category: 'Cadre',
     before: `${UNS}/photo-1512436991641-6745cdb1723f?w=800&q=80&auto=format&fit=crop`,
     after:  `${UNS}/photo-1515886657613-9f3515b0c78f?w=800&q=80&auto=format&fit=crop`,
-    beforeAlt: 'Veste avant cintrage — trop large aux épaules',
-    afterAlt: 'Veste après cintrage — ajustée et structurée',
-    caption: "Cintrage d'un blazer vintage — reprise dos et côtés, épaules repositionnées.",
+    beforeAlt: 'Cadre XVIIIe avant restauration — dorure oxydée et lacunes',
+    afterAlt: 'Cadre XVIIIe après restauration — dorure à la feuille restituée',
+    caption: "Cadre XVIIIe siècle — consolidation du bois, restitution des ornements, dorure à la feuille sur bol d'Arménie.",
   },
   {
-    category: 'Confection',
+    category: 'Mobilier',
     before: `${UNS}/photo-1523381210434-271e8be1f52b?w=800&q=80&auto=format&fit=crop`,
     after:  `${UNS}/photo-1509631179647-0177331693ae?w=800&q=80&auto=format&fit=crop`,
-    beforeAlt: 'Tissu lin avant confection',
-    afterAlt: 'Blouse lin confectionnée sur mesure',
-    caption: 'Blouse lin sur mesure — patron tracé sur mesure, cols et poignets brodés à la main.',
+    beforeAlt: 'Fauteuil Louis XV avant restauration — dorure usée et bois fragilisé',
+    afterAlt: 'Fauteuil Louis XV après restauration — dorure brunissée et patinée',
+    caption: 'Fauteuil Louis XV — traitement du bois sculpté, restitution des manques, dorure à la feuille et brunissage.',
   },
   {
-    category: 'Transformation',
+    category: 'Mobilier',
     before: `${UNS}/photo-1490481651871-ab68de25d43d?w=800&q=80&auto=format&fit=crop`,
     after:  `${UNS}/photo-1539109136881-3be0616acf4b?w=800&q=80&auto=format&fit=crop`,
-    beforeAlt: 'Robe longue avant transformation',
-    afterAlt: 'Jupe midi après transformation',
-    caption: 'Robe longue transformée en jupe midi — ceinture restructurée, surplus devenu doublure.',
+    beforeAlt: 'Console Empire avant restauration — dorure altérée',
+    afterAlt: 'Console Empire après restauration — dorure restituée à l\'identique',
+    caption: 'Console Empire — nettoyage, consolidation, dorure à la mixtion et patinage d\'époque.',
   },
   {
-    category: 'Réparation',
+    category: 'Objet d\'art',
     before: `${UNS}/photo-1576995853123-5a10305d93c0?w=800&q=80&auto=format&fit=crop`,
     after:  `${UNS}/photo-1542272604-787c3835535d?w=800&q=80&auto=format&fit=crop`,
-    beforeAlt: 'Manteau avec fermeture cassée',
-    afterAlt: 'Manteau avec fermeture remplacée',
-    caption: "Remplacement d'une fermeture Éclair sur manteau en laine bouillie — invisible.",
+    beforeAlt: 'Lustre bronze avant restauration — dorure noircie et pièces manquantes',
+    afterAlt: 'Lustre bronze après restauration — dorure au feu restituée',
+    caption: "Lustre bronze XVIIIe — restauration de la dorure au feu, remplacement des pièces manquantes, patine d'époque.",
   },
   {
-    category: 'Retouche',
+    category: 'Cadre',
     before: `${UNS}/photo-1582552938357-32b906df40cb?w=800&q=80&auto=format&fit=crop`,
     after:  `${UNS}/photo-1475178626620-a4d074967452?w=800&q=80&auto=format&fit=crop`,
-    beforeAlt: 'Jean avant ourlet',
-    afterAlt: "Jean après ourlet original préservé",
-    caption: "Ourlet jean avec conservation de l'ourlet d'origine — technique selvedge.",
+    beforeAlt: 'Cadre miroir avant restauration — lacunes importantes et bois vermoulu',
+    afterAlt: 'Cadre miroir après restauration — dorure complète restituée',
+    caption: "Cadre de miroir Régence — traitement du bois, reconstruction des profils en stuc, dorure à la feuille.",
   },
   {
-    category: 'Confection',
+    category: 'Monument',
     before: `${UNS}/photo-1496747611176-843222e1e57c?w=800&q=80&auto=format&fit=crop`,
     after:  `${UNS}/photo-1568252542512-9fe8fe9c87bb?w=800&q=80&auto=format&fit=crop`,
-    beforeAlt: 'Patron robe de soirée',
-    afterAlt: 'Robe de soirée confectionnée',
-    caption: "Robe de soirée en soie sauvage — confection intégrale sur 3 séances d'essayage.",
+    beforeAlt: 'Retable avant restauration — dorure terne et boiseries dégradées',
+    afterAlt: 'Retable après restauration — éclat restitué selon les prescriptions DRAC',
+    caption: "Retable XVIIe, église Paris 14e — restauration en lien avec la DRAC, dorure à la feuille sur toutes les parties sculptées.",
   },
 ];
 
-const categories = ['Tous', 'Retouche', 'Confection', 'Transformation', 'Réparation'];
+const categories = ['Tous', 'Cadre', 'Mobilier', "Objet d'art", 'Monument'];
 ---
 
 <Layout
   title="Réalisations — Avant/Après · Atelier La Toison d'Or Paris 14"
-  description="Galerie avant/après de l'atelier : retouches, confection sur mesure, transformations et réparations de vêtements à Paris 14e (Alésia, Denfert, Montparnasse)."
+  description="Galerie avant/après de l'atelier : restauration de cadres, mobilier, objets d'art et monuments historiques dorés à Paris 14e. Dorure à la feuille traditionnelle."
   canonical="/realisations"
 >
   <Header slot="header" />
@@ -74,7 +74,7 @@ const categories = ['Tous', 'Retouche', 'Confection', 'Transformation', 'Répara
         Ce que nos mains ont fait.
       </h1>
       <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
-        Glissez le curseur pour voir la transformation. Chaque pièce raconte une histoire — et un geste attentionné.
+        Glissez le curseur pour voir la restauration. Chaque pièce raconte une histoire — et un geste patient, au service de l'original.
       </p>
     </div>
   </section>

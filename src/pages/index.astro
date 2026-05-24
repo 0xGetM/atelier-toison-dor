@@ -6,26 +6,26 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 
 const testimonials = [
   {
-    quote: "Ma veste de tailleur retrouvée après dix ans, ajustée comme si elle avait toujours été faite pour moi. Un travail remarquable.",
-    author: "Sophie M.",
-    detail: "Montparnasse"
+    quote: "Un cadre XVIIIe restauré avec une précision et une sensibilité rares. La dorure à la feuille est parfaitement intégrée — on ne voit pas l'intervention.",
+    author: "M. Lefebvre",
+    detail: "Particulier, Paris 7e"
   },
   {
-    quote: "Ourlet de pantalon rendu en 24h, propre et invisible. Je ne vais nulle part ailleurs.",
-    author: "Jean-Pierre L.",
-    detail: "Denfert"
+    quote: "Sophie a restauré quatre fauteuils Louis XV pour notre hôtel. Résultat impeccable, délais respectés, interlocutrice passionnée.",
+    author: "Direction artistique",
+    detail: "Hôtel particulier, Paris 8e"
   },
   {
-    quote: "Robe de mariée transformée en robe de soirée. La fondatrice a compris exactement ce que je voulais dès le premier rendez-vous.",
-    author: "Camille R.",
-    detail: "Alésia"
+    quote: "Notre retable du XVIIe était dans un état critique. L'atelier a réalisé un travail de conservation exemplaire, validé par notre DRAC.",
+    author: "Père D.",
+    detail: "Paroisse, Paris 14e"
   },
 ];
 ---
 
 <Layout
-  title="Retouche Couture Paris 14 — Atelier La Toison d'Or"
-  description="Atelier de couture et retouches à Paris 14e. Retouches soignées, confection sur mesure, réparation textile. Quartiers Alésia, Denfert, Montparnasse."
+  title="Restauration Dorures Paris 14 — Atelier La Toison d'Or"
+  description="Atelier de restauration et conservation des dorures anciennes à Paris 14e depuis 1990. Cadres, mobilier, objets d'art, monuments historiques. Sur rendez-vous."
   canonical="/"
 >
   <Header slot="header" />
@@ -41,13 +41,13 @@ const testimonials = [
 
     <div class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
       <p class="font-sans text-xs uppercase tracking-widest text-terracotta mb-4">
-        Atelier couture · Paris 14<sup>e</sup>
+        Atelier dorures · Paris 14<sup>e</sup> · Depuis 1990
       </p>
       <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-creme leading-tight max-w-2xl mb-6">
-        Chaque pièce mérite un geste juste.
+        L'or retrouve sa lumière.
       </h1>
       <p class="font-sans text-lin/80 text-lg max-w-lg mb-10 leading-relaxed">
-        Retouches, confection sur mesure et réparation de vêtements qui comptent — avec le soin qu'ils méritent.
+        Restauration et conservation des dorures anciennes — cadres, mobilier, objets d'art et monuments historiques — selon les méthodes traditionnelles.
       </p>
       <a href="/contact" class="btn-primary text-base px-8 py-4">
         Prendre rendez-vous
@@ -60,10 +60,10 @@ const testimonials = [
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {[
-          { value: '15+', label: "années d'expérience" },
-          { value: '3 000+', label: 'pièces travaillées' },
-          { value: '48h', label: 'délai express' },
-          { value: '14e', label: 'arrondissement' },
+          { value: '35+', label: "années d'expérience" },
+          { value: 'Depuis 1990', label: 'dans le 14e' },
+          { value: '100%', label: 'méthodes traditionnelles' },
+          { value: 'Privés & MH', label: 'monuments historiques' },
         ].map(item => (
           <div class="fade-up">
             <p class="font-serif text-4xl text-terracotta mb-1">{item.value}</p>
@@ -80,40 +80,40 @@ const testimonials = [
       <div class="mb-12">
         <p class="section-subtitle">Ce que nous faisons</p>
         <h2 class="section-title max-w-xl">
-          Un atelier pour les vêtements auxquels vous tenez.
+          Un atelier pour les œuvres auxquelles vous tenez.
         </h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           {
-            icon: '✂',
-            title: 'Retouches & ajustements',
-            desc: 'Cintrage, raccourcissement, reprise de coutures — pour que le vêtement soit vraiment à votre taille.',
+            icon: '🖼',
+            title: 'Cadres & boiseries dorés',
+            desc: "Restauration de cadres anciens, boiseries et miroirs encadrés — dorure à la feuille, brunissage, repeints.",
           },
           {
-            icon: '🧵',
-            title: 'Confection sur mesure',
-            desc: "Création de pièces uniques à partir de vos tissus ou des nôtres, selon vos envies.",
+            icon: '🪑',
+            title: 'Mobilier doré',
+            desc: "Fauteuils, consoles, lits de parade et sièges d'époque. Chaque pièce est traitée selon son état et son ancienneté.",
           },
           {
-            icon: '🪡',
-            title: 'Réparation textile',
-            desc: 'Raccommodage, remplacement de fermetures, stoppage — on répare ce que vous aimez.',
+            icon: '⛪',
+            title: 'Monuments historiques',
+            desc: 'Intervention sur retables, autels, boiseries liturgiques et objets de culte. Travaux agréés DRAC.',
           },
           {
-            icon: '🔄',
-            title: 'Transformation',
-            desc: 'Robe en jupe, veste en gilet, manteau relooké — donnez une seconde vie à vos pièces.',
+            icon: '🏛',
+            title: 'Objets d\'art & bronzes',
+            desc: "Restauration d'objets précieux, bronzes dorés, lustres et chandeliers anciens.",
           },
           {
-            icon: '📏',
-            title: 'Ourlets express',
-            desc: 'Pantalons, robes, manteaux. Résultat propre en 24 à 48h selon les délais.',
+            icon: '🔬',
+            title: 'Conservation préventive',
+            desc: "Diagnostic, consolidation des surfaces fragilisées et traitement de conservation pour prévenir toute dégradation.",
           },
           {
             icon: '📅',
-            title: 'Sur rendez-vous',
-            desc: 'Prenez rendez-vous en ligne pour un essayage et un devis sans engagement.',
+            title: 'Formation à la dorure',
+            desc: 'Cours et stages pour particuliers ou professionnels souhaitant apprendre les techniques de dorure traditionnelle.',
           },
         ].map(item => (
           <div class="bg-lin/30 border border-lin p-6 rounded-sm fade-up group hover:border-terracotta/40 transition-colors">
@@ -124,7 +124,7 @@ const testimonials = [
         ))}
       </div>
       <div class="mt-10 text-center">
-        <a href="/services" class="btn-outline">Voir tous les tarifs</a>
+        <a href="/services" class="btn-outline">Voir toutes nos prestations</a>
       </div>
     </div>
   </section>
@@ -134,7 +134,7 @@ const testimonials = [
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
         <p class="section-subtitle">Ce qu'ils en disent</p>
-        <h2 class="section-title">Des clients du quartier satisfaits.</h2>
+        <h2 class="section-title">Ce que disent nos clients.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map(t => (
@@ -148,13 +148,13 @@ const testimonials = [
   <section class="bg-terracotta py-16">
     <div class="max-w-2xl mx-auto px-4 text-center">
       <h2 class="font-serif text-3xl md:text-4xl text-creme mb-4">
-        Prêt·e à confier votre pièce ?
+        Prêt à confier votre œuvre ?
       </h2>
       <p class="font-sans text-lin/80 mb-8 leading-relaxed">
-        Prenez rendez-vous en ligne — consultation et devis offerts.
+        Contactez-nous pour un premier diagnostic — examen et devis offerts.
       </p>
       <a href="/contact" class="inline-block bg-creme text-terracotta font-medium px-8 py-4 rounded-sm hover:bg-lin transition-colors">
-        Réserver un créneau
+        Prendre rendez-vous
       </a>
     </div>
   </section>

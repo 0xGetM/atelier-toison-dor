@@ -6,76 +6,82 @@ import ServiceCard from '../components/ServiceCard.astro';
 
 const services = [
   {
-    category: 'Retouches & ajustements',
+    category: 'Restauration de cadres & boiseries',
     items: [
       {
-        title: 'Ourlet simple',
-        description: "Raccourcissement propre d'un pantalon, d'une robe ou d'un manteau. Couture invisible ou rabattue selon le tissu.",
-        priceRange: 'à partir de 12 €',
-        examples: ['Pantalon droit', 'Jean (bord roulotté ou original)', 'Robe ou jupe'],
-      },
-      {
-        title: 'Cintrage & ajustement',
-        description: "Reprise en taille d'une veste, d'une robe ou d'un pantalon pour un tombé impeccable. Essayage inclus.",
-        priceRange: '20 – 60 €',
-        examples: ['Cintrage veste ou blazer', 'Reprise taille pantalon', 'Ajustement robe de soirée'],
-      },
-      {
-        title: 'Reprise de coutures',
-        description: "Coutures décousues, surpiqûre abîmée, assemblage défaillant — on remet tout en ordre.",
-        priceRange: '8 – 25 €',
-        examples: ["Couture d'épaule", 'Surpiqûre jean', 'Assemblage doublure'],
-      },
-    ],
-  },
-  {
-    category: 'Confection sur mesure',
-    items: [
-      {
-        title: 'Pièce sur mesure',
-        description: "Création d'un vêtement de A à Z — patron, coupe et assemblage — à partir de votre tissu ou du nôtre.",
+        title: 'Cadres anciens dorés',
+        description: "Restauration complète de cadres anciens : consolidation du bois, restitution des ornements manquants, dorure à la feuille d'or sur bol d'Arménie.",
         priceRange: 'sur devis',
-        examples: ['Blouse, chemise', 'Jupe droite ou évasée', 'Pantalon sur mesure'],
+        examples: ['Cadres XVIIe – XIXe siècle', 'Cadres de tableaux de maître', 'Cadres de miroirs anciens'],
       },
       {
-        title: 'Doublure & finitions',
-        description: "Ajout ou remplacement d'une doublure, pose de baleines, renforcement de col ou de revers.",
-        priceRange: '25 – 80 €',
-        examples: ['Doublure veste ou manteau', 'Baleines corsage', 'Col et revers'],
-      },
-    ],
-  },
-  {
-    category: 'Réparation textile',
-    items: [
-      {
-        title: 'Remplacement de fermeture',
-        description: "Fermeture Éclair défaillante ou brisée remplacée à l'identique. Invisible, solide, propre.",
-        priceRange: '15 – 40 €',
-        examples: ['Zip pantalon ou jupe', 'Fermeture robe dos', 'Zip veste ou blouson'],
-      },
-      {
-        title: 'Stoppage & raccommodage',
-        description: 'Trou, accroc, maille filée — restauration discrète adaptée à chaque tissu.',
-        priceRange: '20 – 80 €',
-        examples: ['Stoppage laine fine', 'Raccommodage denim', 'Reprise maille'],
-      },
-      {
-        title: 'Remplacement de boutons & passants',
-        description: "Boutons manquants, passants de ceinture abîmés, ganses et agrafes — petites réparations, grand effet.",
-        priceRange: '5 – 20 €',
-        examples: ['Boutons veste ou manteau', 'Passants pantalon', 'Agrafes et crochets'],
-      },
-    ],
-  },
-  {
-    category: 'Transformation de vêtements',
-    items: [
-      {
-        title: 'Transformation & relooking',
-        description: "Donner une seconde vie à une pièce que vous aimez : changer le style, la longueur, la coupe.",
+        title: 'Boiseries & lambris dorés',
+        description: "Restauration de boiseries architecturales, lambris, trumeau et encadrements de portes dorés à la feuille ou à la mixtion.",
         priceRange: 'sur devis',
-        examples: ['Robe → jupe', 'Veste → gilet sans manches', 'Manteau raccourci en veste'],
+        examples: ['Salons XVIIIe', 'Bibliothèques et cabinets', 'Boiseries de chapelles'],
+      },
+      {
+        title: 'Miroirs & trumeaux',
+        description: "Remise en état de la dorure autour des miroirs anciens — repeints, brunissage et patinage selon l'époque.",
+        priceRange: 'sur devis',
+        examples: ['Trumeaux Régence et Louis XV', 'Miroirs Empire', 'Psychés et miroirs de cheminée'],
+      },
+    ],
+  },
+  {
+    category: 'Restauration de mobilier doré',
+    items: [
+      {
+        title: 'Sièges & fauteuils d\'époque',
+        description: "Restauration de la dorure sur fauteuils, canapés, chaises et tabourets — traitement du bois, restitution des profils sculptés, dorure à la feuille.",
+        priceRange: 'sur devis',
+        examples: ['Fauteuils Louis XV et Louis XVI', 'Sièges Empire et Restauration', 'Banquettes et tabourets dorés'],
+      },
+      {
+        title: 'Commodes, consoles & bureaux',
+        description: "Intervention sur les parties dorées de meubles de rangement et meubles d'appui — montants, sabots, frises et bronzes appliqués.",
+        priceRange: 'sur devis',
+        examples: ['Commodes estampillées', 'Consoles dorées', 'Bureaux à cylindre'],
+      },
+      {
+        title: 'Lits de parade & mobilier de cérémonie',
+        description: "Restauration de lits à baldaquin, berceaux et mobilier de cérémonie — dorure et conservation des textiles associés.",
+        priceRange: 'sur devis',
+        examples: ['Lits XVIIe – XVIIIe', 'Berceaux princiers', 'Trônes et chaises de cérémonie'],
+      },
+    ],
+  },
+  {
+    category: 'Objets d\'art & monuments historiques',
+    items: [
+      {
+        title: 'Objets d\'art & bronzes dorés',
+        description: "Restauration de bronzes dorés au feu ou à la feuille, lustres, candélabres, statuettes et objets précieux.",
+        priceRange: 'sur devis',
+        examples: ['Lustres et candélabres', 'Bronzes Empire', 'Pendules et garnitures de cheminée'],
+      },
+      {
+        title: 'Oeuvres religieuses & retables',
+        description: "Restauration de retables, autels dorés, boiseries liturgiques et objets de culte. Travaux réalisés en lien avec les DRAC et services des monuments historiques.",
+        priceRange: 'sur devis',
+        examples: ['Retables et autels', 'Baldaquins et tabernacles', 'Statues et bas-reliefs dorés'],
+      },
+    ],
+  },
+  {
+    category: 'Conservation & formation',
+    items: [
+      {
+        title: 'Diagnostic & conservation préventive',
+        description: "Examen de l'état de conservation, rapport écrit, consolidation préventive et recommandations pour préserver vos œuvres dans la durée.",
+        priceRange: 'sur devis',
+        examples: ['Rapport d\'état', 'Consolidation de surfaces', 'Conseils de conservation'],
+      },
+      {
+        title: 'Formation à la dorure',
+        description: "Cours et stages individuels ou en petit groupe pour apprendre les techniques de dorure à la feuille, au tampon et à la mixtion.",
+        priceRange: 'sur devis',
+        examples: ['Initiation dorure à la feuille', 'Stage patinage et brunissage', 'Formation professionnalisante'],
       },
     ],
   },
@@ -83,8 +89,8 @@ const services = [
 ---
 
 <Layout
-  title="Services & Tarifs — Retouche Couture Paris 14 · Atelier La Toison d'Or"
-  description="Retouches, ajustements, confection sur mesure, réparation textile à Paris 14e. Ourlets, cintrage, fermetures, stoppage. Tarifs indicatifs et devis gratuit."
+  title="Prestations — Restauration Dorures Paris 14 · Atelier La Toison d'Or"
+  description="Restauration de cadres, mobilier, objets d'art et monuments historiques à Paris 14e. Dorure à la feuille, conservation, formation. Devis gratuit sur rendez-vous."
   canonical="/services"
 >
   <Header slot="header" />
@@ -94,10 +100,10 @@ const services = [
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="section-subtitle">Nos prestations</p>
       <h1 class="section-title max-w-2xl mb-4">
-        Retouches, confection sur mesure et réparation textile à Paris 14<sup class="text-lg">e</sup>.
+        Restauration et conservation des dorures anciennes à Paris 14<sup class="text-lg">e</sup>.
       </h1>
       <p class="font-sans text-anthracite/70 max-w-xl leading-relaxed">
-        Les tarifs indiqués sont des fourchettes indicatives. Chaque pièce est unique — le devis définitif est établi lors de votre venue à l'atelier.
+        Chaque intervention est précédée d'un examen de l'état de conservation. Le devis est établi sur rendez-vous, après diagnostic de la pièce, et sans engagement.
       </p>
     </div>
   </section>
@@ -129,7 +135,7 @@ const services = [
   <section class="bg-lin py-14">
     <div class="max-w-3xl mx-auto px-4 text-center">
       <p class="font-serif text-xl text-anthracite italic mb-6">
-        « Un devis précis nécessite de voir la pièce. Venez avec votre vêtement — la consultation est offerte. »
+        « Un devis précis nécessite de voir l'œuvre. Venez avec votre pièce — le diagnostic est offert. »
       </p>
       <a href="/contact" class="btn-primary">Prendre rendez-vous</a>
     </div>
