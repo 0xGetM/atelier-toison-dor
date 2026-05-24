@@ -1,0 +1,69 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-anthracite text-lin/80 font-sans">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Identity -->
+      <div>
+        <p class="font-serif text-2xl text-lin mb-2">La Toison d'Or</p>
+        <p class="text-sm leading-relaxed">
+          Atelier de couture, retouches<br />et confection textile<br />
+          Paris 14<sup>e</sup> arrondissement
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-terracotta mb-4">Navigation</p>
+        <ul class="space-y-2 text-sm">
+          {[
+            ['/', 'Accueil'],
+            ['/services', 'Services'],
+            ['/realisations', 'Réalisations'],
+            ['/a-propos', 'À propos'],
+            ['/faq', 'FAQ'],
+            ['/contact', 'Contact'],
+          ].map(([href, label]) => (
+            <li><a href={href} class="hover:text-lin transition-colors">{label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-terracotta mb-4">Coordonnées</p>
+        <address class="not-italic text-sm leading-7">
+          XX rue d'Alésia<br />
+          75014 Paris<br />
+          <a href="tel:+33100000000" class="hover:text-lin transition-colors">01 XX XX XX XX</a><br />
+          <a href="mailto:contact@toison-dor-paris.fr" class="hover:text-lin transition-colors">
+            contact@toison-dor-paris.fr
+          </a>
+        </address>
+        <p class="text-xs mt-4 leading-5">
+          Lun–Ven 9h30–19h00<br />
+          Sam 10h00–18h00
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-lin/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-lin/50">
+      <p>&copy; {year} Atelier La Toison d'Or — Tous droits réservés</p>
+      <p>
+        Réalisé par{' '}
+        <a
+          href="https://comptoirweb.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-terracotta hover:text-lin transition-colors"
+        >
+          ComptoirWeb
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
