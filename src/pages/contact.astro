@@ -57,6 +57,16 @@ const serviceOptions = [
       <div>
         <h2 class="font-serif text-2xl text-anthracite mb-6">Demande de rendez-vous</h2>
 
+        <!-- Success state (hidden until form submits successfully) -->
+        <div id="form-success" class="hidden text-center py-12 px-6 bg-terracotta/5 border border-terracotta/20 rounded-sm">
+          <div class="text-terracotta text-4xl mb-4" aria-hidden="true">✓</div>
+          <h3 class="font-serif text-xl text-anthracite mb-2">Demande envoyée !</h3>
+          <p class="font-sans text-sm text-anthracite/70 leading-relaxed">
+            Nous avons bien reçu votre demande de rendez-vous.<br />
+            Nous vous répondons sous 24h ouvrées.
+          </p>
+        </div>
+
         <form class="space-y-5" id="contact-form">
           <div>
             <label for="name" class="block font-sans text-sm font-medium text-anthracite mb-1">
@@ -234,9 +244,10 @@ const serviceOptions = [
 </Layout>
 
 <script>
-  const form   = document.getElementById('contact-form') as HTMLFormElement;
-  const btn    = document.getElementById('submit-btn') as HTMLButtonElement;
-  const status = document.getElementById('form-status') as HTMLElement;
+  const form    = document.getElementById('contact-form') as HTMLFormElement;
+  const success = document.getElementById('form-success') as HTMLElement;
+  const btn     = document.getElementById('submit-btn') as HTMLButtonElement;
+  const status  = document.getElementById('form-status') as HTMLElement;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -271,15 +282,17 @@ const serviceOptions = [
       });
 
       if (res.ok) {
-        form.reset();
-        showStatus('Message envoyé. Nous vous répondons sous 24h ouvrées.', true);
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         const { error } = await res.json().catch(() => ({}));
         showStatus(error ?? 'Une erreur est survenue. Appelez-nous directement.', false);
+        btn.disabled = false;
+        btn.textContent = 'Envoyer la demande';
       }
     } catch {
       showStatus('Connexion impossible. Appelez-nous directement.', false);
-    } finally {
       btn.disabled = false;
       btn.textContent = 'Envoyer la demande';
     }
