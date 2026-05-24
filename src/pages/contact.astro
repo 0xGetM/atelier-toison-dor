@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const timeSlots = [
+  'Lundi 9h30 – 13h00',
+  'Lundi 14h00 – 19h00',
+  'Mardi 9h30 – 13h00',
+  'Mardi 14h00 – 19h00',
+  'Mercredi 9h30 – 13h00',
+  'Mercredi 14h00 – 19h00',
+  'Jeudi 9h30 – 13h00',
+  'Jeudi 14h00 – 19h00',
+  'Vendredi 9h30 – 13h00',
+  'Vendredi 14h00 – 19h00',
+  'Samedi 10h00 – 13h00',
+  'Samedi 13h00 – 18h00',
+];
+
+const serviceOptions = [
+  'Retouche / ajustement',
+  'Ourlet express',
+  'Confection sur mesure',
+  'Réparation textile',
+  'Transformation de vêtement',
+  'Autre',
+];
+---
+
+<Layout
+  title="Contact & Rendez-vous — Atelier La Toison d'Or Paris 14"
+  description="Prenez rendez-vous à l'atelier couture La Toison d'Or, Paris 14e. Adresse, horaires, formulaire de contact et carte. Quartiers Alésia, Denfert, Montparnasse."
+  canonical="/contact"
+>
+  <Header slot="header" />
+
+  <!-- Page header -->
+  <section class="bg-lin py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="section-subtitle">Nous trouver</p>
+      <h1 class="section-title max-w-xl mb-4">
+        Prenez rendez-vous à l'atelier.
+      </h1>
+      <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
+        Venez avec votre pièce — la consultation et le devis sont offerts. On regarde ensemble, on vous dit ce qu'on peut faire, et on s'accorde sur le reste.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact grid -->
+  <section class="py-16 bg-creme">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <!-- Form -->
+      <div>
+        <h2 class="font-serif text-2xl text-anthracite mb-6">Demande de rendez-vous</h2>
+
+        <form
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          class="space-y-5"
+          id="contact-form"
+        >
+          <div>
+            <label for="name" class="block font-sans text-sm font-medium text-anthracite mb-1">
+              Nom complet <span class="text-terracotta">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors"
+              placeholder="Marie Dupont"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block font-sans text-sm font-medium text-anthracite mb-1">
+              Email <span class="text-terracotta">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors"
+              placeholder="marie@exemple.fr"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block font-sans text-sm font-medium text-anthracite mb-1">
+              Téléphone
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              autocomplete="tel"
+              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors"
+              placeholder="06 XX XX XX XX"
+            />
+          </div>
+
+          <div>
+            <label for="service" class="block font-sans text-sm font-medium text-anthracite mb-1">
+              Type de prestation <span class="text-terracotta">*</span>
+            </label>
+            <select
+              id="service"
+              name="service"
+              required
+              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors appearance-none"
+            >
+              <option value="" disabled selected>Choisir une prestation…</option>
+              {serviceOptions.map(opt => (
+                <option value={opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label for="slot" class="block font-sans text-sm font-medium text-anthracite mb-1">
+              Créneau souhaité <span class="text-terracotta">*</span>
+            </label>
+            <select
+              id="slot"
+              name="slot"
+              required
+              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors appearance-none"
+            >
+              <option value="" disabled selected>Choisir un créneau…</option>
+              {timeSlots.map(slot => (
+                <option value={slot}>{slot}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block font-sans text-sm font-medium text-anthracite mb-1">
+              Description de votre pièce
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors resize-none"
+              placeholder="Décrivez brièvement votre vêtement et la retouche souhaitée…"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full text-center py-4">
+            Envoyer la demande
+          </button>
+
+          <p class="font-sans text-xs text-anthracite/50 text-center">
+            Nous vous répondons sous 24h ouvrées.
+          </p>
+        </form>
+      </div>
+
+      <!-- Info sidebar -->
+      <div class="space-y-8">
+
+        <div class="bg-lin/40 border border-lin rounded-sm p-6">
+          <h2 class="font-serif text-xl text-anthracite mb-4">L'atelier</h2>
+          <address class="not-italic font-sans text-sm text-anthracite/80 space-y-3">
+            <p class="flex gap-3">
+              <span aria-hidden="true">📍</span>
+              <span>XX rue d'Alésia<br />75014 Paris</span>
+            </p>
+            <p class="flex gap-3">
+              <span aria-hidden="true">📞</span>
+              <a href="tel:+33100000000" class="hover:text-terracotta transition-colors">01 XX XX XX XX</a>
+            </p>
+            <p class="flex gap-3">
+              <span aria-hidden="true">✉️</span>
+              <a href="mailto:contact@toison-dor-paris.fr" class="hover:text-terracotta transition-colors">
+                contact@toison-dor-paris.fr
+              </a>
+            </p>
+          </address>
+        </div>
+
+        <div class="bg-lin/40 border border-lin rounded-sm p-6">
+          <h3 class="font-serif text-xl text-anthracite mb-4">Horaires</h3>
+          <dl class="font-sans text-sm space-y-2">
+            {[
+              ['Lundi – Vendredi', '9h30 – 19h00'],
+              ['Samedi', '10h00 – 18h00'],
+              ['Dimanche', 'Fermé'],
+            ].map(([day, hours]) => (
+              <div class="flex justify-between gap-4">
+                <dt class="text-anthracite/60">{day}</dt>
+                <dd class="text-anthracite font-medium">{hours}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="bg-terracotta/10 border border-terracotta/30 rounded-sm p-5">
+          <p class="font-sans text-sm text-anthracite/80 mb-3">
+            Retrouvez-nous sur Google Maps et laissez-nous un avis.
+          </p>
+          <a
+            href="https://maps.google.com/?cid=VOTRE_CID"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline text-sm py-2"
+          >
+            Voir la fiche Google
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="h-80 md:h-96 bg-lin">
+    <iframe
+      title="Localisation Atelier La Toison d'Or — Paris 14e"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=2.3100%2C48.8200%2C2.3400%2C48.8360&layer=mapnik&marker=48.8282%2C2.3264"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
