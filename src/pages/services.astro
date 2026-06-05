@@ -96,27 +96,27 @@ const services = [
   <Header slot="header" />
 
   <!-- Page header -->
-  <section class="bg-lin py-16 md:py-20">
+  <section class="page-hero">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="section-subtitle">Nos prestations</p>
-      <h1 class="section-title max-w-2xl mb-4">
+      <p class="page-kicker">Nos prestations</p>
+      <h1 class="page-title mb-5">
         Restauration et conservation des dorures anciennes à Paris 14<sup class="text-lg">e</sup>.
       </h1>
-      <p class="font-sans text-anthracite/70 max-w-xl leading-relaxed">
+      <p class="page-lede">
         Chaque intervention est précédée d'un examen de l'état de conservation. Le devis est établi sur rendez-vous, après diagnostic de la pièce, et sans engagement.
       </p>
     </div>
   </section>
 
   <!-- Services par catégorie -->
-  <section class="py-16 bg-creme">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+  <section class="section-band bg-creme">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 md:space-y-20">
       {services.map(cat => (
         <div>
-          <h2 class="font-serif text-2xl md:text-3xl text-anthracite mb-8 pb-4 border-b border-lin">
+          <h2 class="section-heading mb-7 pb-4 border-b border-lin">
             {cat.category}
           </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {cat.items.map(item => (
               <ServiceCard
                 title={item.title}
@@ -132,9 +132,9 @@ const services = [
   </section>
 
   <!-- Note tarifaire + CTA -->
-  <section class="bg-lin py-14">
+  <section class="bg-lin py-12 md:py-16">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <p class="font-serif text-xl text-anthracite italic mb-6">
+      <p class="font-serif text-2xl md:text-3xl font-medium italic text-anthracite leading-tight mb-7">
         « Un devis précis nécessite de voir l'œuvre. Venez avec votre pièce — le diagnostic est offert. »
       </p>
       <a href="/contact" class="btn-primary">Prendre rendez-vous</a>

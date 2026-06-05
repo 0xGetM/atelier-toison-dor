@@ -40,16 +40,16 @@ const testimonials = [
     ></div>
 
     <div class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <p class="font-sans text-xs uppercase tracking-widest text-terracotta mb-4">
+      <p class="page-kicker">
         Atelier dorures · Paris 14<sup>e</sup> · Depuis 1990
       </p>
-      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-creme leading-tight max-w-2xl mb-6">
+      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-semibold text-creme leading-[0.98] max-w-2xl mb-6">
         L'or retrouve sa lumière.
       </h1>
       <p class="font-sans text-lin/80 text-lg max-w-lg mb-10 leading-relaxed">
         Restauration et conservation des dorures anciennes — cadres, mobilier, objets d'art et monuments historiques — selon les méthodes traditionnelles.
       </p>
-      <a href="/contact" class="inline-block bg-terracotta text-creme font-sans font-medium text-base px-8 py-4 rounded-sm transition-colors duration-200 hover:bg-terracotta-dark">
+      <a href="/contact" class="inline-flex items-center justify-center bg-terracotta text-creme font-sans font-semibold text-base px-8 py-4 rounded-sm transition-colors duration-200 hover:bg-terracotta-dark">
         Prendre rendez-vous
       </a>
     </div>
@@ -75,7 +75,7 @@ const testimonials = [
   </section>
 
   <!-- Aperçu prestations -->
-  <section class="py-20 bg-creme">
+  <section class="section-band bg-creme">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
         <p class="section-subtitle">Ce que nous faisons</p>
@@ -83,7 +83,7 @@ const testimonials = [
           Un atelier pour les œuvres auxquelles vous tenez.
         </h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
         {[
           {
             icon: '🖼',
@@ -116,10 +116,10 @@ const testimonials = [
             desc: 'Cours et stages pour particuliers ou professionnels souhaitant apprendre les techniques de dorure traditionnelle.',
           },
         ].map(item => (
-          <div class="bg-lin/30 border border-lin p-6 rounded-sm fade-up group hover:border-terracotta/40 transition-colors">
+          <div class="content-card bg-lin/25 p-6 rounded-sm fade-up group hover:border-terracotta/40 transition-colors">
             <span class="text-2xl mb-4 block" aria-hidden="true">{item.icon}</span>
-            <h3 class="font-serif text-xl text-anthracite mb-2">{item.title}</h3>
-            <p class="font-sans text-sm text-anthracite/70 leading-relaxed">{item.desc}</p>
+            <h3 class="font-serif text-xl md:text-2xl font-semibold text-anthracite leading-tight mb-3">{item.title}</h3>
+            <p class="body-copy-sm">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -130,7 +130,7 @@ const testimonials = [
   </section>
 
   <!-- Témoignages -->
-  <section class="py-20 bg-lin/30">
+  <section class="section-band bg-lin/30">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
         <p class="section-subtitle">Ce qu'ils en disent</p>
@@ -145,15 +145,15 @@ const testimonials = [
   </section>
 
   <!-- CTA final -->
-  <section class="bg-terracotta py-16">
+  <section class="bg-terracotta py-14 md:py-20">
     <div class="max-w-2xl mx-auto px-4 text-center">
-      <h2 class="font-serif text-3xl md:text-4xl text-creme mb-4">
+      <h2 class="font-serif text-3xl md:text-5xl font-semibold text-creme leading-tight mb-4">
         Prêt à confier votre œuvre ?
       </h2>
-      <p class="font-sans text-lin/80 mb-8 leading-relaxed">
+      <p class="font-sans text-base md:text-lg text-lin/85 mb-8 leading-8">
         Contactez-nous pour un premier diagnostic — examen et devis offerts.
       </p>
-      <a href="/contact" class="inline-block bg-creme text-terracotta font-medium px-8 py-4 rounded-sm hover:bg-lin transition-colors">
+      <a href="/contact" class="inline-flex items-center justify-center bg-creme text-terracotta font-sans font-semibold px-8 py-4 rounded-sm hover:bg-lin transition-colors">
         Prendre rendez-vous
       </a>
     </div>

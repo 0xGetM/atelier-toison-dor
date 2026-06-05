@@ -10,8 +10,29 @@
     background-color: #FAFAF7;
   }
 
+  body {
+    text-rendering: optimizeLegibility;
+  }
+
   h1, h2, h3, h4 {
     font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  ::selection {
+    background: rgba(194, 112, 68, 0.22);
+  }
+
+  a, button, input, select, textarea {
+    outline-color: #C27044;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #C27044;
+    outline-offset: 3px;
   }
 
   .fade-up {
@@ -27,15 +48,58 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block bg-terracotta text-creme font-sans font-medium px-7 py-3 rounded-sm transition-colors duration-200 hover:bg-terracotta-dark;
+    @apply inline-flex items-center justify-center bg-terracotta text-creme font-sans text-sm font-semibold px-7 py-3 rounded-sm transition-colors duration-200 hover:bg-terracotta-dark;
   }
   .btn-outline {
-    @apply inline-block border border-terracotta text-terracotta font-sans font-medium px-7 py-3 rounded-sm transition-colors duration-200 hover:bg-terracotta hover:text-creme;
+    @apply inline-flex items-center justify-center border border-terracotta text-terracotta font-sans text-sm font-semibold px-7 py-3 rounded-sm transition-colors duration-200 hover:bg-terracotta hover:text-creme;
+  }
+  .page-hero {
+    @apply bg-lin/70 border-b border-lin py-14 md:py-20;
+  }
+  .page-kicker,
+  .section-subtitle {
+    @apply inline-flex items-center gap-3 font-sans text-[0.72rem] md:text-xs font-bold uppercase tracking-[0.18em] text-terracotta mb-4;
+  }
+  .page-kicker::before,
+  .section-subtitle::before {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+  .page-kicker.text-center,
+  .section-subtitle.text-center {
+    @apply justify-center;
+  }
+  .page-title {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-anthracite leading-[0.98] max-w-3xl;
+  }
+  .page-lede {
+    @apply font-sans text-base md:text-lg text-anthracite/70 leading-8 max-w-2xl;
   }
   .section-title {
-    @apply font-serif text-3xl md:text-4xl text-anthracite leading-tight;
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-anthracite leading-[1.05];
   }
-  .section-subtitle {
-    @apply font-sans text-sm uppercase tracking-widest text-terracotta mb-3;
+  .section-heading {
+    @apply font-serif text-2xl md:text-3xl font-semibold text-anthracite leading-tight;
+  }
+  .body-copy {
+    @apply font-sans text-base text-anthracite/75 leading-8;
+  }
+  .body-copy-sm {
+    @apply font-sans text-sm md:text-base text-anthracite/70 leading-7;
+  }
+  .section-band {
+    @apply py-14 md:py-20;
+  }
+  .content-card {
+    @apply bg-creme border border-lin rounded-sm shadow-[0_18px_60px_rgba(45,45,45,0.06)];
+  }
+  .field-label {
+    @apply block font-sans text-sm font-semibold text-anthracite mb-2;
+  }
+  .form-control {
+    @apply w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm transition-colors focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/15;
   }
 }

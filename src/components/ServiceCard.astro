@@ -8,18 +8,18 @@ export interface Props {
 const { title, description, priceRange, examples } = Astro.props;
 ---
 
-<article class="bg-creme border border-lin rounded-sm p-6 md:p-8 fade-up">
+<article class="content-card p-6 md:p-8 fade-up transition-colors duration-200 hover:border-terracotta/35">
   <div class="flex items-start justify-between gap-4 mb-3">
-    <h3 class="font-serif text-xl md:text-2xl text-anthracite">{title}</h3>
-    <span class="font-sans text-sm font-medium text-terracotta whitespace-nowrap bg-lin/60 px-3 py-1 rounded-sm">
+    <h3 class="font-serif text-xl md:text-2xl font-semibold text-anthracite leading-tight">{title}</h3>
+    <span class="font-sans text-xs font-bold uppercase tracking-[0.12em] text-terracotta whitespace-nowrap bg-lin/60 px-3 py-1.5 rounded-sm">
       {priceRange}
     </span>
   </div>
-  <p class="font-sans text-sm text-anthracite/70 leading-relaxed mb-4">{description}</p>
+  <p class="body-copy-sm mb-5">{description}</p>
   {examples && examples.length > 0 && (
-    <ul class="space-y-1">
+    <ul class="space-y-2">
       {examples.map(ex => (
-        <li class="font-sans text-sm text-anthracite/60 flex items-center gap-2">
+        <li class="font-sans text-sm text-anthracite/65 flex items-start gap-2">
           <span class="w-1 h-1 rounded-full bg-terracotta inline-block flex-shrink-0" aria-hidden="true"></span>
           {ex}
         </li>

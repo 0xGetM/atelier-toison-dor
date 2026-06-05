@@ -37,25 +37,25 @@ const serviceOptions = [
   <Header slot="header" />
 
   <!-- Page header -->
-  <section class="bg-lin py-16 md:py-20">
+  <section class="page-hero">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="section-subtitle">Nous trouver</p>
-      <h1 class="section-title max-w-xl mb-4">
+      <p class="page-kicker">Nous trouver</p>
+      <h1 class="page-title mb-5">
         Prenez rendez-vous à l'atelier.
       </h1>
-      <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
+      <p class="page-lede">
         Venez avec votre pièce — le diagnostic et le devis sont offerts. On examine ensemble l'état de conservation, on vous explique ce qu'il est possible de faire, et on s'accorde avant tout travail.
       </p>
     </div>
   </section>
 
   <!-- Contact grid -->
-  <section class="py-16 bg-creme">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
+  <section class="section-band bg-creme">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1fr_0.78fr] gap-10 lg:gap-14 items-start">
 
       <!-- Form -->
-      <div>
-        <h2 class="font-serif text-2xl text-anthracite mb-6">Demande de rendez-vous</h2>
+      <div class="content-card p-5 md:p-8">
+        <h2 class="section-heading mb-6">Demande de rendez-vous</h2>
 
         <!-- Success state (hidden until form submits successfully) -->
         <div id="form-success" class="hidden text-center py-12 px-6 bg-terracotta/5 border border-terracotta/20 rounded-sm">
@@ -69,7 +69,7 @@ const serviceOptions = [
 
         <form class="space-y-5" id="contact-form">
           <div>
-            <label for="name" class="block font-sans text-sm font-medium text-anthracite mb-1">
+            <label for="name" class="field-label">
               Nom complet <span class="text-terracotta">*</span>
             </label>
             <input
@@ -78,13 +78,13 @@ const serviceOptions = [
               name="name"
               required
               autocomplete="name"
-              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors"
+              class="form-control"
               placeholder="Marie Dupont"
             />
           </div>
 
           <div>
-            <label for="email" class="block font-sans text-sm font-medium text-anthracite mb-1">
+            <label for="email" class="field-label">
               Email <span class="text-terracotta">*</span>
             </label>
             <input
@@ -93,13 +93,13 @@ const serviceOptions = [
               name="email"
               required
               autocomplete="email"
-              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors"
+              class="form-control"
               placeholder="marie@exemple.fr"
             />
           </div>
 
           <div>
-            <label for="phone" class="block font-sans text-sm font-medium text-anthracite mb-1">
+            <label for="phone" class="field-label">
               Téléphone
             </label>
             <input
@@ -107,20 +107,20 @@ const serviceOptions = [
               id="phone"
               name="phone"
               autocomplete="tel"
-              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors"
+              class="form-control"
               placeholder="06 XX XX XX XX"
             />
           </div>
 
           <div>
-            <label for="service" class="block font-sans text-sm font-medium text-anthracite mb-1">
+            <label for="service" class="field-label">
               Type de prestation <span class="text-terracotta">*</span>
             </label>
             <select
               id="service"
               name="service"
               required
-              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors appearance-none"
+              class="form-control appearance-none"
             >
               <option value="" disabled selected>Choisir une prestation…</option>
               {serviceOptions.map(opt => (
@@ -130,14 +130,14 @@ const serviceOptions = [
           </div>
 
           <div>
-            <label for="slot" class="block font-sans text-sm font-medium text-anthracite mb-1">
+            <label for="slot" class="field-label">
               Créneau souhaité <span class="text-terracotta">*</span>
             </label>
             <select
               id="slot"
               name="slot"
               required
-              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors appearance-none"
+              class="form-control appearance-none"
             >
               <option value="" disabled selected>Choisir un créneau…</option>
               {timeSlots.map(slot => (
@@ -147,14 +147,14 @@ const serviceOptions = [
           </div>
 
           <div>
-            <label for="message" class="block font-sans text-sm font-medium text-anthracite mb-1">
+            <label for="message" class="field-label">
               Description de votre pièce
             </label>
             <textarea
               id="message"
               name="message"
               rows="4"
-              class="w-full border border-lin bg-creme px-4 py-3 font-sans text-sm rounded-sm focus:outline-none focus:border-terracotta transition-colors resize-none"
+              class="form-control resize-none"
               placeholder="Décrivez brièvement votre œuvre et l'intervention souhaitée…"
             ></textarea>
           </div>
@@ -171,10 +171,10 @@ const serviceOptions = [
       </div>
 
       <!-- Info sidebar -->
-      <div class="space-y-8">
+      <div class="space-y-6 lg:sticky lg:top-28">
 
-        <div class="bg-lin/40 border border-lin rounded-sm p-6">
-          <h2 class="font-serif text-xl text-anthracite mb-4">L'atelier</h2>
+        <div class="content-card bg-lin/35 p-6">
+          <h2 class="section-heading mb-4">L'atelier</h2>
           <address class="not-italic font-sans text-sm text-anthracite/80 space-y-3">
             <p class="flex gap-3">
               <span aria-hidden="true">📍</span>
@@ -193,8 +193,8 @@ const serviceOptions = [
           </address>
         </div>
 
-        <div class="bg-lin/40 border border-lin rounded-sm p-6">
-          <h3 class="font-serif text-xl text-anthracite mb-4">Horaires</h3>
+        <div class="content-card bg-lin/35 p-6">
+          <h3 class="section-heading mb-4">Horaires</h3>
           <dl class="font-sans text-sm space-y-2">
             {[
               ['Lundi – Vendredi', '9h00 – 18h00'],
@@ -209,8 +209,8 @@ const serviceOptions = [
           </dl>
         </div>
 
-        <div class="bg-terracotta/10 border border-terracotta/30 rounded-sm p-5">
-          <p class="font-sans text-sm text-anthracite/80 mb-3">
+        <div class="bg-terracotta/10 border border-terracotta/30 rounded-sm p-5 md:p-6">
+          <p class="body-copy-sm mb-4">
             Retrouvez-nous sur Google Maps et laissez-nous un avis.
           </p>
           <a

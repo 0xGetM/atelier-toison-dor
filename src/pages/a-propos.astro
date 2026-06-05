@@ -12,27 +12,27 @@ import Footer from '../components/Footer.astro';
   <Header slot="header" />
 
   <!-- Page header -->
-  <section class="bg-lin py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  <section class="page-hero">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1fr_0.78fr] gap-10 lg:gap-16 items-center">
       <div>
-        <p class="section-subtitle">L'atelier</p>
-        <h1 class="section-title mb-6">
+        <p class="page-kicker">L'atelier</p>
+        <h1 class="page-title mb-6">
           Un savoir-faire ancestral,<br />transmis avec exigence.
         </h1>
-        <p class="font-sans text-anthracite/70 leading-relaxed">
+        <p class="page-lede">
           La Toison d'Or, c'est un atelier parisien dédié à la restauration et à la conservation des dorures anciennes depuis 1990. Un espace où chaque œuvre est examinée avec soin, où l'or retrouve sa lumière selon les méthodes que les maîtres doreurs ont léguées.
         </p>
       </div>
       <div class="relative">
-        <div class="aspect-[4/5] bg-lin rounded-sm overflow-hidden">
+        <div class="aspect-[4/5] bg-lin rounded-sm overflow-hidden shadow-[0_28px_80px_rgba(45,45,45,0.16)]">
           <img
-            src="https://images.unsplash.com/photo-1566677914817-56426959ae9c?w=800&q=80&auto=format&fit=crop"
-            alt="La fondatrice de l'Atelier La Toison d'Or dans son atelier"
+            src="/images/hero-restauration-meubles.png"
+            alt="Mobilier doré en cours de restauration dans l'atelier"
             class="w-full h-full object-cover"
             loading="eager"
           />
         </div>
-        <div class="absolute -bottom-4 -left-4 bg-terracotta text-creme font-serif text-lg p-5 rounded-sm hidden md:block">
+        <div class="absolute -bottom-4 -left-4 bg-terracotta text-creme font-serif text-xl font-semibold px-6 py-5 rounded-sm hidden md:block">
           Depuis 1990
         </div>
       </div>
@@ -40,12 +40,12 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- Histoire -->
-  <section class="py-16 bg-creme">
+  <section class="section-band bg-creme">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="section-subtitle">Histoire</p>
       <h2 class="section-title mb-8">Comment tout a commencé.</h2>
 
-      <div class="space-y-5 font-sans text-anthracite/80 leading-relaxed">
+      <div class="space-y-5 body-copy">
         <p>
           Sophie Derouin découvre la dorure à la feuille au détour d'un stage de formation au patrimoine, fascinée par la précision du geste et la noblesse du matériau. Après une formation approfondie aux techniques traditionnelles — bol d'Arménie, brunissage, patinage — elle ouvre l'Atelier La Toison d'Or en 1990, rue Ernest Cresson, dans le 14<sup>e</sup> arrondissement de Paris.
         </p>
@@ -60,21 +60,21 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- Philosophie -->
-  <section class="py-16 bg-lin/40">
+  <section class="section-band bg-lin/35">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.92fr_1fr] gap-10 lg:gap-16 items-center">
+        <div class="grid grid-cols-2 gap-4 md:gap-5">
           <div class="aspect-square bg-lin rounded-sm overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80&auto=format&fit=crop" alt="Vue de l'atelier, machines et tissus" class="w-full h-full object-cover" loading="lazy" />
+            <img src="/images/hero-restauration-meubles.png" alt="Détail d'un meuble ancien sur l'établi" class="w-full h-full object-cover object-right" loading="lazy" />
           </div>
           <div class="aspect-square bg-lin rounded-sm overflow-hidden mt-8">
-            <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?w=800&q=80&auto=format&fit=crop" alt="Détail d'une retouche en cours" class="w-full h-full object-cover" loading="lazy" />
+            <img src="/images/hero-restauration-meubles.png" alt="Feuilles d'or et outils de dorure" class="w-full h-full object-cover object-bottom" loading="lazy" />
           </div>
         </div>
         <div class="fade-up">
           <p class="section-subtitle">Philosophie</p>
           <h2 class="section-title mb-6">Restaurer sans trahir.<br />Conserver pour durer.</h2>
-          <div class="space-y-4 font-sans text-sm text-anthracite/70 leading-relaxed">
+          <div class="space-y-4 body-copy-sm">
             <p>
               La restauration d'une dorure ancienne n'est pas un simple ravalement. C'est une lecture de l'histoire de l'objet : ses couches successives, ses reprises, ses usures. On n'intervient qu'après avoir compris.
             </p>
@@ -91,19 +91,19 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- Valeurs -->
-  <section class="py-16 bg-creme">
+  <section class="section-band bg-creme">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="section-subtitle text-center">Nos engagements</p>
       <h2 class="section-title text-center mb-12">Ce en quoi nous croyons.</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
         {[
           { title: 'Authenticité', text: 'Matériaux traditionnels exclusivement — feuille d\'or véritable, bol d\'Arménie, colles naturelles.' },
           { title: 'Rigueur', text: "Diagnostic avant toute intervention. Devis écrit, travail validé. Pas de surprise." },
           { title: 'Transmission', text: "Formation proposée aux particuliers et professionnels pour perpétuer un savoir-faire rare." },
         ].map(v => (
-          <div class="text-center fade-up">
-            <h3 class="font-serif text-2xl text-anthracite mb-3">{v.title}</h3>
-            <p class="font-sans text-sm text-anthracite/70 leading-relaxed">{v.text}</p>
+          <div class="content-card p-6 md:p-8 text-center fade-up">
+            <h3 class="section-heading mb-3">{v.title}</h3>
+            <p class="body-copy-sm">{v.text}</p>
           </div>
         ))}
       </div>

@@ -7,11 +7,11 @@ export interface Props {
 const { quote, author, detail } = Astro.props;
 ---
 
-<figure class="bg-lin/40 border border-lin rounded-sm p-6 fade-up">
-  <blockquote class="font-serif text-lg italic text-anthracite leading-relaxed mb-4">
+<figure class="content-card bg-lin/40 p-6 md:p-7 fade-up">
+  <blockquote class="font-serif text-xl font-medium italic text-anthracite leading-snug mb-5">
     « {quote} »
   </blockquote>
-  <figcaption class="font-sans text-sm text-terracotta font-medium">
+  <figcaption class="font-sans text-sm text-terracotta font-bold">
     {author}
     {detail && <span class="text-anthracite/60 font-normal"> — {detail}</span>}
   </figcaption>

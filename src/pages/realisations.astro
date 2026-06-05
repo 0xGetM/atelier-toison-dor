@@ -67,27 +67,27 @@ const categories = ['Tous', 'Cadre', 'Mobilier', "Objet d'art", 'Monument'];
   <Header slot="header" />
 
   <!-- Page header -->
-  <section class="bg-lin py-16 md:py-20">
+  <section class="page-hero">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="section-subtitle">Galerie</p>
-      <h1 class="section-title max-w-xl mb-4">
+      <p class="page-kicker">Galerie</p>
+      <h1 class="page-title mb-5">
         Ce que nos mains ont fait.
       </h1>
-      <p class="font-sans text-anthracite/70 max-w-lg leading-relaxed">
+      <p class="page-lede">
         Glissez le curseur pour voir la restauration. Chaque pièce raconte une histoire — et un geste patient, au service de l'original.
       </p>
     </div>
   </section>
 
   <!-- Filter tabs -->
-  <section class="bg-creme border-b border-lin sticky top-16 md:top-20 z-40">
+  <section class="bg-creme/95 backdrop-blur border-b border-lin sticky top-16 md:top-20 z-40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex gap-1 overflow-x-auto py-3" id="filter-tabs">
         {categories.map((cat, i) => (
           <button
             data-filter={cat}
             class:list={[
-              'filter-btn flex-shrink-0 font-sans text-sm px-4 py-2 rounded-sm transition-colors',
+              'filter-btn flex-shrink-0 font-sans text-sm font-semibold px-4 py-2 rounded-sm transition-colors',
               i === 0
                 ? 'bg-terracotta text-creme'
                 : 'text-anthracite/60 hover:text-anthracite'
@@ -101,9 +101,9 @@ const categories = ['Tous', 'Cadre', 'Mobilier', "Objet d'art", 'Monument'];
   </section>
 
   <!-- Gallery grid -->
-  <section class="py-16 bg-creme">
+  <section class="section-band bg-creme">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="gallery-grid">
         {realisations.map(r => (
           <div data-category={r.category} class="gallery-item">
             <BeforeAfterSlider

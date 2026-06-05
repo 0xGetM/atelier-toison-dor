@@ -7,16 +7,16 @@ export interface Props {
 const { question, answer, open = false } = Astro.props;
 ---
 
-<details class="border-b border-lin py-5 group" open={open}>
+<details class="border-b border-lin py-6 group" open={open}>
   <summary class="flex items-center justify-between cursor-pointer list-none gap-4">
-    <span class="font-serif text-lg text-anthracite group-open:text-terracotta transition-colors">
+    <span class="font-serif text-xl md:text-2xl font-semibold text-anthracite group-open:text-terracotta transition-colors leading-tight">
       {question}
     </span>
-    <span class="flex-shrink-0 w-6 h-6 rounded-full border border-lin flex items-center justify-center text-terracotta transition-transform group-open:rotate-45" aria-hidden="true">
+    <span class="flex-shrink-0 w-7 h-7 rounded-full border border-lin flex items-center justify-center text-terracotta transition-transform group-open:rotate-45" aria-hidden="true">
       +
     </span>
   </summary>
-  <p class="font-sans text-sm text-anthracite/70 leading-relaxed mt-4 pr-10">
+  <p class="body-copy-sm mt-4 md:pr-12">
     {answer}
   </p>
 </details>
